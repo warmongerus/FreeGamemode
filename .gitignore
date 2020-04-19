@@ -1,0 +1,10 @@
+cache/*
+crashes/*
+*.bat
+citizen/*
+/*.dll
+*.exe
+*.json
+*.cfg
+*.crt
+*.key
