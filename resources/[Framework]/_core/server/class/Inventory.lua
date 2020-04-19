@@ -36,7 +36,6 @@ function API.Inventory(id, capacity, items)
     end
 
     self.getCharId = function()
-        -- Owner of the inventory
         if string.find(self:getId(), "char:") then
             local charid = string.sub(self:getId(), string.find(self:getId(), "char:") + 5)
             return tonumber(charid) or 0
@@ -50,7 +49,6 @@ function API.Inventory(id, capacity, items)
             return false
         end
 
-        -- if forced == true or self:getWeight() + (ItemData:getWeight() * amount) <= self:getCapacity() then
         local _temp = self.items[id] or 0
         _temp = _temp + amount
 
@@ -61,28 +59,24 @@ function API.Inventory(id, capacity, items)
             {id = self:getId(), charid = self:getCharId(), itemName = id, itemCount = _temp, typeInv = "update"}
         )
         for viewerSource, asPrimary in pairs(self.viewersSources) do
-            -- Update
             local User = API.getUserFromSource(viewerSource)
 
             if asPrimary then
-                TriggerClientEvent("CKF:INVENTORY:PrimarySyncItemAmount", viewerSource, id, _temp, ItemData:getName())
+                --TriggerClientEvent("CKF:INVENTORY:PrimarySyncItemAmount", viewerSource, id, _temp, ItemData:getName())
                 User:notify("Inventário Principal: + x" .. amount .. " " .. ItemData:getName())
             else
-                TriggerClientEvent(
-                    "CKF:INVENTORY:SecondarySyncItemAmount",
-                    viewerSource,
-                    id,
-                    _temp,
-                    ItemData:getName()
-                )
+                --TriggerClientEvent(
+                --    "CKF:INVENTORY:SecondarySyncItemAmount",
+                --    viewerSource,
+                --    id,
+                --    _temp,
+                --    ItemData:getName()
+                --)
                 User:notify("Inventário Secundário: + x" .. amount .. " " .. ItemData:getName())
             end
         end
 
         return true
-        -- end
-
-        -- return false
     end
 
     self.removeItem = function(this, id, amount)
@@ -110,22 +104,22 @@ function API.Inventory(id, capacity, items)
                 local User = API.getUserFromSource(viewerSource)
 
                 if asPrimary then
-                    TriggerClientEvent(
-                        "CKF:INVENTORY:PrimarySyncItemAmount",
-                        viewerSource,
-                        id,
-                        _temp,
-                        ItemData:getName()
-                    )
+                    --TriggerClientEvent(
+                    --    "CKF:INVENTORY:PrimarySyncItemAmount",
+                    --    viewerSource,
+                    --    id,
+                    --    _temp,
+                    --    ItemData:getName()
+                    --)
                     User:notify("Inventário Principal: - x" .. amount .. " " .. ItemData:getName())
                 else
-                    TriggerClientEvent(
-                        "CKF:INVENTORY:SecondarySyncItemAmount",
-                        viewerSource,
-                        id,
-                        _temp,
-                        ItemData:getName()
-                    )
+                    --TriggerClientEvent(
+                    --    "CKF:INVENTORY:SecondarySyncItemAmount",
+                    --    viewerSource,
+                    --    id,
+                    --    _temp,
+                    --    ItemData:getName()
+                    --)
                     User:notify("Inventário Secundário: - x" .. amount .. " " .. ItemData:getName())
                 end
             end
@@ -151,7 +145,6 @@ function API.Inventory(id, capacity, items)
         local parsedItems = {}
         for id, amount in pairs(self.items) do
             local ItemData = API.getItemDataFromId(id)
-            -- if ItemData ~= nil then
             table.insert(
                 parsedItems,
                 {
@@ -159,23 +152,19 @@ function API.Inventory(id, capacity, items)
                     amount = amount,
                     name = ItemData:getName(),
                     subtitle = ItemData:getSubTitle()
-                    -- name = ItemData:getName()
                 }
             )
-            -- end
         end
 
-        TriggerClientEvent("CKF:INVENTORY:openAsPrimary", viewerSource, parsedItems)
+        TriggerClientEvent("_inventory:clientReceived", viewerSource, parsedItems)
     end
 
     self.viewAsSecondary = function(this, viewerSource)
         self.viewersSources[viewerSource] = false
 
         local parsedItems = {}
-        -- Dont really need to parse them as the name of the items is being read from the ItemList config by the client
         for id, amount in pairs(self.items) do
             local ItemData = API.getItemDataFromId(id)
-            -- if ItemData ~= nil then
             table.insert(
                 parsedItems,
                 {
@@ -183,13 +172,11 @@ function API.Inventory(id, capacity, items)
                     amount = amount,
                     name = ItemData:getName(),
                     subtitle = ItemData:getSubTitle()
-                    -- name = ItemData:getName()
                 }
             )
-            -- end
         end
 
-        TriggerClientEvent("CKF:INVENTORY:openAsSecondary", viewerSource, parsedItems)
+        TriggerClientEvent("_inventory:clientReceivedSecondary", viewerSource, parsedItems)
     end
 
     self.removeViewer = function(this, viewerSource)

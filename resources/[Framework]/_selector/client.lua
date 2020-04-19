@@ -13,7 +13,7 @@ AddEventHandler('CKF_identity:charList', function(characters)
     SendNUIMessage({type = 2}) -- clear UI
     Wait(1000)
     SetNuiFocus(true, true)
-       SendNUIMessage({
+    SendNUIMessage({
         type = 1,
         list = characters
     })      

@@ -313,7 +313,6 @@ function cAPI.getHealth()
 end
 
 local prompResult = nil
-
 function cAPI.prompt(title, default_text)
 	SendNUIMessage({act = "prompt", title = title, text = tostring(default_text)})
 	SetNuiFocus(true)
@@ -334,7 +333,6 @@ RegisterNUICallback(
 		end
 	end
 )
-
 local requests = {}
 
 function cAPI.request(text, time)
@@ -549,14 +547,6 @@ function cAPI.clientConnected(bool)
 		ShutdownLoadingScreenNui()
 		ShutdownLoadingScreen()
 	end
-end
-
-function cAPI.notify(_message)
-	local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", _message, Citizen.ResultAsLong())
-	SetTextScale(0.25, 0.25)
-	SetTextCentre(1)
-	Citizen.InvokeNative(0xFA233F8FE190514C, str)
-	Citizen.InvokeNative(0xE9990552DEC71600)
 end
 
 function cAPI.DrawText(str, x, y, w, h, enableShadow, r, g, b, a, centre, font)

@@ -12597,7 +12597,11 @@ module.exports = g;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_inventory__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views/inventory */ "./src/scripts/views/inventory.js");
 /* harmony import */ var _views_create_char__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/create-char */ "./src/scripts/views/create-char.js");
+/* harmony import */ var _views_furniture__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/furniture */ "./src/scripts/views/furniture.js");
+/* harmony import */ var _views_phone__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/phone */ "./src/scripts/views/phone.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+
 
 
 
@@ -12607,6 +12611,8 @@ var Main = function Main() {
 
   new _views_inventory__WEBPACK_IMPORTED_MODULE_0__["default"]();
   new _views_create_char__WEBPACK_IMPORTED_MODULE_1__["default"]();
+  new _views_furniture__WEBPACK_IMPORTED_MODULE_2__["default"]();
+  new _views_phone__WEBPACK_IMPORTED_MODULE_3__["default"]();
 };
 
 window.onload = function () {
@@ -13523,6 +13529,164 @@ window.addEventListener("keydown", throttle(function (ev) {
 
 /***/ }),
 
+/***/ "./src/scripts/views/furniture.js":
+/*!****************************************!*\
+  !*** ./src/scripts/views/furniture.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_dist_vue_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue/dist/vue.common */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue_dist_vue_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue_common__WEBPACK_IMPORTED_MODULE_0__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var Furniture =
+/*#__PURE__*/
+function () {
+  function Furniture() {
+    _classCallCheck(this, Furniture);
+
+    if (window.location.href.indexOf('furniture') > -1) {
+      this.initScript();
+    }
+  }
+
+  _createClass(Furniture, [{
+    key: "initScript",
+    value: function initScript() {
+      window.vm = new vue_dist_vue_common__WEBPACK_IMPORTED_MODULE_0___default.a({
+        el: "#furniture",
+        components: {},
+        data: {
+          showFurniture: true,
+          selectedMenuLeft: 0,
+          selectedMenuRight: 0,
+          itemShow: true,
+          selectedItem: {
+            image: "https://i.imgur.com/frWB4CC.png"
+          },
+          menuleft: [{
+            name: "Mesas",
+            icon: "fas fa-chair",
+            options: [{
+              name: "Mesa para TV",
+              description: "Mesa para colocar sua televisão",
+              prop: "prop_tv_cabinet_03",
+              image: "https://i.imgur.com/frWB4CC.png",
+              price: 25000
+            }, {
+              name: "Mesa para janta",
+              description: "Mesa para sua janta",
+              prop: "prop_ld_farm_table02",
+              image: "https://i.imgur.com/ZY3PtTh.png",
+              price: 25000
+            }, {
+              name: "Mesa para janta 2",
+              description: "Mesa para sua janta",
+              prop: "prop_ld_farm_table01",
+              image: "https://i.imgur.com/Aw3iHut.png",
+              price: 25000
+            }, {
+              name: "Mesa para café 1",
+              description: "Tomar aquele cafézinho de manhã, hmmmm",
+              prop: "prop_fbi3_coffee_table",
+              image: "https://i.imgur.com/LZ91o86.png",
+              price: 25000
+            }, {
+              name: "Mesa para café 2",
+              description: "Tomar aquele cafézinho de manhã, hmmmm",
+              prop: "prop_t_coffe_table",
+              image: "https://i.imgur.com/YOlS9RR.png",
+              price: 25000
+            }, {
+              name: "Mesa para café 3",
+              description: "Tomar aquele cafézinho de manhã, hmmmm",
+              prop: "prop_t_coffe_table_02",
+              image: "https://i.imgur.com/Q42TC5L.png",
+              price: 25000
+            }]
+          }, {
+            name: "Cadeiras",
+            icon: "fas fa-chair"
+          }, {
+            name: "Decorações",
+            icon: "fas fa-chair"
+          }, {
+            name: "Eletrônicos",
+            icon: "fas fa-chair"
+          }, {
+            name: "Plantas",
+            icon: "fas fa-chair"
+          }, {
+            name: "Sofas",
+            icon: "fas fa-chair"
+          }, {
+            name: "Camas",
+            icon: "fas fa-chair"
+          }],
+          menuright: [{
+            name: "Joias",
+            icon: "fas fa-chair"
+          }, {
+            name: "Drogas",
+            icon: "fas fa-chair"
+          }, {
+            name: "Comidas",
+            icon: "fas fa-chair"
+          }, {
+            name: "Luzes",
+            icon: "fas fa-chair"
+          }, {
+            name: "Cozinha",
+            icon: "fas fa-chair"
+          }, {
+            name: "ETC",
+            icon: "fas fa-chair"
+          }, {
+            name: "NorthCity",
+            icon: "fas fa-chair"
+          }]
+        },
+        computed: {},
+        methods: {
+          isActiveLeft: function isActiveLeft(menuItem) {
+            return this.selectedMenuLeft === menuItem;
+          },
+          isActiveRight: function isActiveRight(menuItem) {
+            return this.selectedMenuRight === menuItem;
+          },
+          menuLeftChange: function menuLeftChange(menuItem) {
+            this.selectedMenuLeft = menuItem;
+          },
+          menuRightChange: function menuRightChange(menuItem) {
+            this.selectedMenuRight = menuItem;
+          },
+          clickedItemLeft: function clickedItemLeft(item) {
+            var item = this.menuleft[this.selectedMenuLeft].options[item];
+            this.itemShow = !this.itemShow;
+          }
+        },
+        mounted: function mounted() {},
+        created: function created() {}
+      });
+    }
+  }]);
+
+  return Furniture;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Furniture);
+
+/***/ }),
+
 /***/ "./src/scripts/views/inventory.js":
 /*!****************************************!*\
   !*** ./src/scripts/views/inventory.js ***!
@@ -13534,6 +13698,14 @@ window.addEventListener("keydown", throttle(function (ev) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_dist_vue_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue/dist/vue.common */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue_dist_vue_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue_common__WEBPACK_IMPORTED_MODULE_0__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -13559,8 +13731,55 @@ function () {
       window.vm = new vue_dist_vue_common__WEBPACK_IMPORTED_MODULE_0___default.a({
         el: "#sinventory",
         data: {
+          hoverSelectedPrimary: null,
+          selectedPrimary: null,
+          hoverSelectedSecondary: null,
+          selectedSecondary: null,
+          showInventory: false,
+          primaryItemsObject: {},
+          primaryItemsArray: [],
+          tabSelected: 0
         },
         methods: {
+          display: function display(bool) {
+            this.showInventory = bool;
+
+            if (bool == false) {
+              $.post("http://_inventory/NUIFocusOff", JSON.stringify({}));
+            }
+          },
+          updatePrimaryItems: function updatePrimaryItems(receivedData) {
+            for (var _i = 0, _Object$entries = Object.entries(receivedData); _i < _Object$entries.length; _i++) {
+              var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+                  itemId = _Object$entries$_i[0],
+                  itemData = _Object$entries$_i[1];
+
+              if (itemData.amount > 0) {
+                this.primaryItemsObject[itemId] = itemData;
+              } else {
+                delete this.primaryItemsObject[itemId];
+              }
+            }
+
+            ;
+            this.primaryItemsArray = [];
+
+            for (var _i2 = 0, _Object$entries2 = Object.entries(this.primaryItemsObject); _i2 < _Object$entries2.length; _i2++) {
+              var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2),
+                  itemId = _Object$entries2$_i[0],
+                  itemData = _Object$entries2$_i[1];
+
+              this.primaryItemsArray.push({
+                id: itemId,
+                name: itemData.name,
+                amount: itemData.amount,
+                description: itemData.description
+              });
+            }
+          },
+          UpdateButton: function UpdateButton(el, button) {
+            this.tabSelected = button;
+          }
         },
         mounted: function mounted() {},
         created: function created() {}
@@ -13571,28 +13790,293 @@ function () {
   return Inventory;
 }();
 
-window.addEventListener('message', function (event) {
-  switch (event.data.action) {
-    case "clearPrimary":
-      if (event.data.primaryItems) {
-        console.log(event.data.primaryItems);
-        window.vm.emitItens(event.data.primaryItems);
-      } else {
-        window.vm.emitItens([]);
-      }
-
-      break;
-  }
-});
 $(document).ready(function () {
   $(document).keydown(function (event) {
-    if (event.which == 27) {
-      // ES     s
-      window.vm.closeInventory();
+    if (event.which == 27 || event.which == 71) {
+      window.vm.showInventory = false;
+      $.post("http://_inventory/_inventoryClose");
+      cursor.style.display = "none";
+    }
+  });
+  var cursor = document.getElementById("cursor");
+  var documentWidth = document.documentElement.clientWidth;
+  var documentHeight = document.documentElement.clientHeight;
+  var cursorX = documentWidth / 2;
+  var cursorY = documentHeight / 2;
+
+  function Click(x, y) {
+    var element = $(document.elementFromPoint(x, y));
+    element.focus().click();
+  }
+
+  function UpdateCursorPos() {
+    cursor.style.left = cursorX + "px";
+    cursor.style.top = cursorY + "px";
+  }
+
+  $(document).mousemove(function (event) {
+    cursorX = event.pageX;
+    cursorY = event.pageY;
+    UpdateCursorPos();
+  });
+  window.addEventListener('message', function (event) {
+    switch (event.data.action) {
+      case "show_primary_inventory":
+        if (event.data.items) {
+          window.vm.showInventory = true;
+          window.vm.updatePrimaryItems(event.data.items);
+          cursor.style.display = "block";
+        }
+
+        break;
+
+      case "mouseUI":
+        Click(cursorX - 1, cursorY - 1);
+        break;
     }
   });
 });
 /* harmony default export */ __webpack_exports__["default"] = (Inventory);
+
+/***/ }),
+
+/***/ "./src/scripts/views/phone.js":
+/*!************************************!*\
+  !*** ./src/scripts/views/phone.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_dist_vue_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue/dist/vue.common */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue_dist_vue_common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue_common__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_slide_up_down__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-slide-up-down */ "./node_modules/vue-slide-up-down/dist/vue-slide-up-down.m.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+var Phone =
+/*#__PURE__*/
+function () {
+  function Phone() {
+    _classCallCheck(this, Phone);
+
+    if (window.location.href.indexOf('phone') > -1) {
+      this.initScript();
+    }
+  }
+
+  _createClass(Phone, [{
+    key: "initScript",
+    value: function initScript() {
+      window.vm = new vue_dist_vue_common__WEBPACK_IMPORTED_MODULE_0___default.a({
+        el: "#phone",
+        components: {
+          VueSlideUpDown: vue_slide_up_down__WEBPACK_IMPORTED_MODULE_1__["default"]
+        },
+        data: {
+          showPhone: true,
+          unlocked: true,
+          show: true,
+          home: false,
+          appbar: [{
+            asset: "call",
+            icon: "icon call",
+            app: 12,
+            options: '',
+            img: "../assets/phone/apps/call.png"
+          }, {
+            asset: "safari",
+            icon: "icon safari",
+            app: 13,
+            options: '',
+            img: "../assets/phone/apps/safari.png"
+          }, {
+            asset: "message",
+            icon: "icon message",
+            app: 14,
+            options: '',
+            img: "../assets/phone/apps/message.png"
+          }, {
+            asset: "music",
+            icon: "icon music",
+            app: 15,
+            options: '',
+            img: "../assets/phone/apps/music.png"
+          }],
+          apps: [{
+            name: "Configurações",
+            app: 1,
+            options: '',
+            img: "../assets/phone/apps/config.png"
+          }, {
+            name: "Câmera",
+            icon: 2,
+            options: '',
+            img: "../assets/phone/apps/camera.png"
+          }, {
+            name: "Email",
+            icon: 3,
+            options: '',
+            img: "../assets/phone/apps/mail.png"
+          }, {
+            name: "NuBank",
+            icon: 5,
+            options: '',
+            img: "../assets/phone/apps/nubank.png"
+          }, {
+            name: "YellowPages",
+            icon: 6,
+            options: '',
+            img: "../assets/phone/apps/yellow.png"
+          }, {
+            name: "Tinder",
+            icon: 7,
+            options: '',
+            img: "../assets/phone/apps/tinder.png"
+          }, {
+            name: "Twitter",
+            icon: 8,
+            options: '',
+            img: "../assets/phone/apps/twitter.png"
+          }, {
+            name: "CabCo Taxi",
+            icon: 9,
+            options: '',
+            img: "../assets/phone/apps/taxi.png"
+          }, {
+            name: "DeepWeb",
+            icon: 10,
+            options: '',
+            img: "../assets/phone/apps/deepweb.png"
+          }, {
+            name: "Galeria",
+            icon: 11,
+            options: '',
+            img: "../assets/phone/apps/gallery.png"
+          }],
+          activeapp: [{
+            message: false
+          }, {
+            tinder: false
+          }],
+          notify: [{
+            app: "Mensagem",
+            title: "Crazy",
+            text: "Vai vender a parada?",
+            time: "1min"
+          }]
+        },
+        methods: {
+          showNotify: function showNotify() {
+            $('.notification').css({
+              'opacity': '1'
+            });
+          },
+          pad: function pad(s) {
+            return s < 10 ? '0' + s : s;
+          },
+          changeApp: function changeApp(index) {
+            this.selectedMenu = index;
+          },
+          isActive: function isActive(app) {
+            return this.selectedMenu === app;
+          },
+          unlock: function unlock() {}
+        },
+        mounted: function mounted() {},
+        created: function created() {
+          var data = new Date();
+          $('.time').html([data.getHours(), data.getMinutes()].map(this.pad).join(':'));
+          $('#home').fadeIn(1000);
+        }
+      });
+    }
+  }]);
+
+  return Phone;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Phone);
+/*
+
+        function responsiveChat(element) {
+            $(element).html('<form class="chat"><span></span><div class="messages"></div><input type="text" placeholder="Your message"><input type="submit" value="Send"></form>');
+        
+            function showLatestMessage() {
+                $(element).find('.messages').scrollTop($(element).find('.messages').height());
+            }
+            showLatestMessage();
+        
+        
+            $(element + ' input[type="text"]').keypress(function (event) {
+                if (event.which == 13) {
+                    event.preventDefault();
+                    $(element + ' input[type="submit"]').click();
+                }
+            });
+            $(element + ' input[type="submit"]').click(function (event) {
+                event.preventDefault();
+                var message = $(element + ' input[type="text"]').val();
+                if ($(element + ' input[type="text"]').val()) {
+                    var d = new Date();
+                    var clock = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+                    var month = d.getMonth() + 1;
+                    var day = d.getDate();
+                    var currentDate =
+                        (("" + day).length < 2 ? "0" : "") +
+                        day +
+                        "." +
+                        (("" + month).length < 2 ? "0" : "") +
+                        month +
+                        "." +
+                        d.getFullYear() +
+                        "&nbsp;&nbsp;" +
+                        clock;
+                    $(element + ' div.messages').append(
+                        '<div class="message"><div class="myMessage"><p>' +
+                        message +
+                        "</p><date>" +
+                        currentDate +
+                        "</date></div></div>"
+                    );
+                    setTimeout(function () {
+                        $(element + ' > span').addClass("spinner");
+                    }, 100);
+                    setTimeout(function () {
+                        $(element + ' > span').removeClass("spinner");
+                    }, 2000);
+                }
+                $(element + ' input[type="text"]').val("");
+                showLatestMessage();
+            });
+        }
+        
+        function responsiveChatPush(element, sender, origin, date, message) {
+            var originClass;
+            if (origin == 'me') {
+                originClass = 'myMessage';
+            } else {
+                originClass = 'fromThem';
+            }
+            $(element + ' .messages').append('<div class="message"><div class="' + originClass + '"><p>' + message + '</p><date><b>' + sender + '</b> ' + date + '</date></div></div>');
+        }
+        
+        responsiveChat('.responsive-html5-chat');
+        
+        responsiveChatPush('.chat', 'Kate', 'me', '08.03.2017 14:30:7', 'It looks beautiful!');
+        responsiveChatPush('.chat', 'John Doe', 'you', '08.03.2016 14:31:22', 'It looks like the iPhone message box.');
+        responsiveChatPush('.chat', 'Kate', 'me', '08.03.2016 14:33:32', 'Yep, is this design responsive?');
+        responsiveChatPush('.chat', 'Kate', 'me', '08.03.2016 14:36:4', 'By the way when I hover on my message it shows date.');
+        responsiveChatPush('.chat', 'John Doe', 'you', '08.03.2016 14:37:12', 'Yes, this is completely responsive.');
+        
+*/
 
 /***/ }),
 
@@ -13603,7 +14087,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Gabriel\Desktop\UI\src\scripts\main.js */"./src/scripts/main.js");
+module.exports = __webpack_require__(/*! C:\Users\Gabriel\Desktop\Antigo\UI\src\scripts\main.js */"./src/scripts/main.js");
 
 
 /***/ })
