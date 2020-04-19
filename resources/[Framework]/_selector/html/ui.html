@@ -61,16 +61,16 @@
 
 		function createNewCharacter() {
 			$("body").slideUp();
-			$.post('http://_identity/createCharacter', JSON.stringify({}));
+			$.post('http://_selector/createCharacter', JSON.stringify({}));
 		}
 
 		function select(id) {			
 			$("body").slideUp();
-			$.post('http://_identity/selectCharacter', JSON.stringify(id));
+			$.post('http://_selector/selectCharacter', JSON.stringify(id));
 		}
 		
 		function delet(id) {
-			$.post('http://_identity/deleteCharacter', JSON.stringify(id));
+			$.post('http://_selector/deleteCharacter', JSON.stringify(id));
 		}
 	</script>
 
