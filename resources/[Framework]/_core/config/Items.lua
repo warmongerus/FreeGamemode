@@ -62,42 +62,52 @@ ItemList = {
     -------------------------------
     -------------------------------
     ['ammo_carbinerifle_mk2'] = {
+        type = "ammo",
         name = '9mm (MPX-C)',
         weight = 0.1
     },
     ['ammo_specialcarbine'] = {
+        type = "ammo",
         name = '5.56x45mm (H&K G36C)',
         weight = 0.1
     },
     ['ammo_assaultrifle'] = {
+        type = "ammo",
         name = '7.62x39mm (AK-47)',
         weight = 0.1
     },
     ['ammo_compactrifle'] = {
+        type = "ammo",
         name = '7.62x39mm (AK-47 Pistol)',
         weight = 0.1
     },
     ['ammo_assaultsmg'] = {
-        name = '? 5.7x28mm (SMG de Assalto)',
+        type = "ammo",
+        name = '5.7x28mm (SMG de Assalto)',
         weight = 0.1
     },
     ['ammo_smg_mk2'] = {
+        type = "ammo",
         name = '9mm (MPX)',
         weight = 0.1
     },
     ['ammo_machinepistol'] = {
+        type = "ammo",
         name = '9mm (TEC-9)',
         weight = 0.2
     },
     ['ammo_heavypistol'] = {
+        type = "ammo",
         name = '.45 ACP (1911)',
         weight = 0.2
     },
     ['ammo_combatpistol'] = {
+        type = "ammo",
         name = '.357 SIG (H&K P2000)',
         weight = 0.2
     },
     ['ammo_vintagepistol'] = {
+        type = "ammo",
         name = '.32 ACP (FN Model 1922)',
         weight = 0.2
     },
@@ -123,65 +133,11 @@ ItemList = {
         weight = 0.3,
         hungerVar = 1.0
     },
-    ['consumable_ginseng_elixier'] = {
-        type = 'beverage',
-        name = 'Cerveja',
-        weight = 0.7,
-        thirstVar = 1.0
-    },
-    ['consumable_irish_whiskey'] = {
-        type = 'beverage',
-        name = 'Uísque',
-        weight = 0.8,
-        thirstVar = 1.0
-    },
-    ['consumable_moonshine'] = {
-        type = 'beverage',
-        name = 'Moonshine',
-        weight = 0.8,
-        thirstVar = 1.0
-    },
     ['consumable_waterbottle'] = {
         type = 'beverage',
         name = 'Água',
         weight = 0.2,
         ThirstVar = 1.0
-    },
-    ['tonic_medicine'] = {
-        type = 'boost',
-        name = 'Tônico de Vida (Pequeno)',
-        weight = 0.4,
-        var = 25
-    },
-    ['tonic_tonic'] = {
-        type = 'boost',
-        name = 'Tônico de Vida (Médio)',
-        weight = 0.5,
-        var = 50
-    },
-    ['tonic_potent_medicine'] = {
-        type = 'boost',
-        name = 'Tônico de Vida (Grande)',
-        weight = 0.6,
-        var = 100
-    },
-    ['tonic_special_tonic'] = {
-        type = 'boos',
-        name = 'Tônico de Energia (Pequeno)',
-        weight = 0.4,
-        var = 25
-    },
-    ['tonic_special_medicine'] = {
-        type = 'boost',
-        name = 'Tônico de Energia (Médio)',
-        weight = 0.5,
-        var = 50
-    },
-    ['tonic_special_horse_stimulant_crafted'] = {
-        type = 'boost',
-        name = 'Tônico de Energia (grande)',
-        weight = 0.6,
-        var = 100
     },
     -------------------------------
     -------------------------------
@@ -264,7 +220,7 @@ ItemList = {
         weight = 0.5
     },
     ['generic_sugar'] = {
-        type = 'usable',
+        type = 'normal',
         name = 'Açucar',
         weight = 0.5
     },
@@ -322,43 +278,5 @@ ItemList = {
         type = 'usable',
         name = 'Fogueira',
         weight = 3.0
-    },
-    ['kit_camp_tent_small'] = {
-        type = 'tents',
-        name = 'Tenda Pequena',
-        weight = 5.0
-    },
-    ['kit_camp_tent_medium'] = {
-        type = 'tents',
-        name = 'Tenda Media',
-        weight = 7.0
-    },
-    ['kit_camp_tent_large'] = {
-        type = 'tents',
-        name = 'Tenda Grande',
-        weight = 10.0
-    },
-    ['kit_camp_simple'] = {
-        type = 'tents',
-        name = 'Fogueira Simples',
-        weight = 3.0
-    },
-    ['kit_chest_small'] = {
-        type = 'chest',
-        name = 'Baú Pequeno',
-        weight = 3.0,
-        var = 25
-    },
-    ['kit_chest_medium'] = {
-        type = 'chest',
-        name = 'Baú Médio',
-        weight = 4.0,
-        var = 50
-    },
-    ['kit_chest_large'] = {
-        type = 'chest',
-        name = 'Baú Grande',
-        weight = 5.0,
-        var = 100
     },
 }

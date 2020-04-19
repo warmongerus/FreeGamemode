@@ -62,7 +62,7 @@ function API.Inventory(id, capacity, items)
             local User = API.getUserFromSource(viewerSource)
 
             if asPrimary then
-                --TriggerClientEvent("CKF:INVENTORY:PrimarySyncItemAmount", viewerSource, id, _temp, ItemData:getName())
+                TriggerClientEvent("_inventory:updateItems", viewerSource, self:updateItem())
                 User:notify("Inventário Principal: + x" .. amount .. " " .. ItemData:getName())
             else
                 --TriggerClientEvent(
@@ -77,6 +77,24 @@ function API.Inventory(id, capacity, items)
         end
 
         return true
+    end
+
+    self.updateItem = function(this)
+        local parsedItems = {}
+        for id, amount in pairs(self.items) do
+            local ItemData = API.getItemDataFromId(id)
+            table.insert(
+                parsedItems,
+                {
+                    id = id,
+                    amount = amount,
+                    name = ItemData:getName(),
+                    subtitle = ItemData:getSubTitle(),
+                    type = ItemData:getType()
+                }
+            )
+        end
+        return parsedItems
     end
 
     self.removeItem = function(this, id, amount)
@@ -151,7 +169,8 @@ function API.Inventory(id, capacity, items)
                     id = id,
                     amount = amount,
                     name = ItemData:getName(),
-                    subtitle = ItemData:getSubTitle()
+                    subtitle = ItemData:getSubTitle(),
+                    type = ItemData:getType()
                 }
             )
         end
@@ -171,7 +190,8 @@ function API.Inventory(id, capacity, items)
                     id = id,
                     amount = amount,
                     name = ItemData:getName(),
-                    subtitle = ItemData:getSubTitle()
+                    subtitle = ItemData:getSubTitle(),
+                    type = ItemData:getType()
                 }
             )
         end

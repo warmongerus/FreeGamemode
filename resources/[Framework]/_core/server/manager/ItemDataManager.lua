@@ -14,74 +14,10 @@ function API.getItemDataFromName(name)
     return defaultItemData
 end
 
-function API.getAmmoTypeFromWeaponType(weapon)
-    weapon = weapon:upper()
-
-    local ammo = nil
-
-    if weapon == 'WEAPON_MOONSHINEJUG' then
-        ammo = 'AMMO_MOONSHINEJUG'
-    end
-
-    if weapon == 'WEAPON_FISHINGROD' then
-        ammo = 'AMMO_FISHINGROD'
-    end
-
-    if weapon == 'WEAPON_THROWN_THROWING_KNIVES' then
-        ammo = 'AMMO_THROWING_KNIVES'
-    end
-
-    if weapon == 'WEAPON_THROWN_TOMAHAWK' then
-        ammo = 'AMMO_TOMAHAWK'
-    end
-
-    if weapon == 'WEAPON_THROWN_TOMAHAWK_ANCIENT' then
-        ammo = 'AMMO_TOMAHAWK_ANCIENT'
-    end
-
-    if weapon == 'WEAPON_MOONSHINEJUG' then
-        ammo = 'AMMO_MOONSHINEJUG'
-    end
-
-    if weapon:find('_PISTOL_') then
-        ammo = 'AMMO_PISTOL'
-    end
-
-    if weapon:find('_REPEATER_') or weapon:find('WEAPON_RIFLE_VARMINT') then
-        ammo = 'AMMO_REPEATER'
-    end
-
-    if weapon:find('_REVOLVER_') then
-        ammo = 'AMMO_REVOLVER'
-    end
-
-    if weapon:find('RIFLE_') then
-        ammo = 'AMMO_RIFLE'
-    end
-
-    if weapon:find('_SHOTGUN_') then
-        ammo = 'AMMO_SHOTGUN'
-    end
-
-    if weapon:find('WEAPON_BOW') then
-        ammo = 'AMMO_ARROW'
-    end
-
-    if weapon:find('WEAPON_THROWN_DYNAMITE') then
-        ammo = 'AMMO_DYNAMITE'
-    end
-
-    if weapon:find('WEAPON_THROWN_MOLOTOV') then
-        ammo = 'AMMO_MOLOTOV'
-    end
-
-    return ammo
-end
-
 Citizen.CreateThread(
     function()
         for id, values in pairs(ItemList) do
-            local ItemData = API.ItemData(id, values.name, values.weight or 0.1, values.subtitle)
+            local ItemData = API.ItemData(id, values.name, values.weight or 0.1, values.subtitle, values.type)
 
             if id:find('weapon_') then
                 ItemData:onUse(
@@ -157,24 +93,6 @@ Citizen.CreateThread(
                     end
                 )
             end
-
-            if id:find('tonic_') then
-                ItemData:onUse(
-                    function(this, User, amount)
-                        local var = values.var
-                        if id == 'medicine' or id == 'tonic' or id == 'potent_medicine' then
-                            cAPI.varyHealth(User:getSource(), var)
-                        end
-
-                        if id == 'special_tonic' or id == 'special_medicine' or id == 'special_horse_stimulant_crafted' then
-                            cAPI.varyStamina(User:getSource(), var)
-                        end
-
-                        return true
-                    end
-                )
-            end
-
             itemDatas[id] = ItemData
             names[values.name] = id
         end
