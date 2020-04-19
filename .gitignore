@@ -8,3 +8,4 @@ citizen/*
 *.cfg
 *.crt
 *.key
+icudtl.dat
