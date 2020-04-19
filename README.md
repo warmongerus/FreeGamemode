@@ -23,6 +23,5 @@ CK-Framework has its own [Official Discord](https://discord.io/ckframework).
 ### Documentation: https://ycr4zy.github.io/CK-Framework/index.html
 
 ### Credits:
-  - yCr4zY#2802 ( Developer from CK Framework and Creator )
-  - key_value#2732 ( Developer from CK Framework  )
-  - Klandestino ( Developer from Character Selector  )
+  - yCr4zY#2802 ( Developer from CK Framework )
+  - CK Framework
