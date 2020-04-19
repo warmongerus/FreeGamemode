@@ -1,4 +1,4 @@
-# CK-Framework
+# Free Gamemode by Crazy
 This is a framework still under development where all content is open source, and the rest of the scripts are made by the FiveM RP Community. Access our discord!
 
 CK-Framework has its own [Official Discord](https://discord.io/ckframework).
